@@ -1,5 +1,12 @@
 import PropTypes from 'prop-types';
 
+import {
+  FirstItemWrapper,
+  Span,
+  FirstList,
+  SecondList,
+} from './CarItem.styled';
+
 export default function CarItem({ car }) {
   const {
     id,
@@ -15,28 +22,27 @@ export default function CarItem({ car }) {
     functionalities,
   } = car;
   return (
-    <div>
+    <>
       <img src={img} alt={car.make} />
-      <div>
+      <FirstItemWrapper>
         <p>
-          {make} <span>{model},</span> {year}
+          {make} <Span>{model},</Span> {year}
         </p>
         <p>{rentalPrice}</p>
-      </div>
-
-      <ul>
+      </FirstItemWrapper>
+      <FirstList>
         <li>{city}</li>
         <li>{country}</li>
         <li>{rentalCompany}</li>
-      </ul>
-      <ul>
+      </FirstList>
+      <SecondList>
         <li>{type}</li>
         <li>{model}</li>
         <li>{id}</li>
         <li>{functionalities[0]}</li>
-      </ul>
-      <button>Learn More</button>
-    </div>
+      </SecondList>
+      <button>Learn more</button>
+    </>
   );
 }
 

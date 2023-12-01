@@ -1,4 +1,4 @@
-import CarsList from '../../components/carsList/carsList';
+import CarsList from '../../components/CarsList/CarsList';
 
 function Cars() {
   return (

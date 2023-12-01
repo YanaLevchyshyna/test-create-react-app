@@ -5,6 +5,7 @@ export const theme = {
     accent: '#F7F7FB',
     text: 'rgba(18, 20, 23, 0.5)',
     black: '#121417',
+    after: 'rgba(18, 20, 23, 0.10)',
   },
 
   space: [0, 2, 4, 5, 8, 16, 32, 64, 128, 256],
@@ -38,7 +39,7 @@ export const theme = {
   },
   radius: {
     none: '0',
-    normal: '8px',
+    normal: '12px',
     round: '50%',
   },
   shadows: {
