@@ -1,18 +1,42 @@
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
 
 export default function CarItem({ car }) {
-  const location = useLocation();
-  const { id, make, img } = car;
+  const {
+    id,
+    make,
+    model,
+    year,
+    rentalPrice,
+    img,
+    type,
+    country,
+    city,
+    rentalCompany,
+    functionalities,
+  } = car;
   return (
-    <>
-      <Link to={`/cars/${id}`} state={{ from: location }}>
-        <div>
-          <img src={img} alt={car.make} />
-          <p>{make}</p>
-        </div>
-      </Link>
-    </>
+    <div>
+      <img src={img} alt={car.make} />
+      <div>
+        <p>
+          {make} <span>{model},</span> {year}
+        </p>
+        <p>{rentalPrice}</p>
+      </div>
+
+      <ul>
+        <li>{city}</li>
+        <li>{country}</li>
+        <li>{rentalCompany}</li>
+      </ul>
+      <ul>
+        <li>{type}</li>
+        <li>{model}</li>
+        <li>{id}</li>
+        <li>{functionalities[0]}</li>
+      </ul>
+      <button>Learn More</button>
+    </div>
   );
 }
 
