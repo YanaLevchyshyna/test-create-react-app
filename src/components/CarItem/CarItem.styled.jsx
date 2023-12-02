@@ -43,6 +43,7 @@ export const FirstList = styled.ul`
 
 export const SecondList = styled.ul`
   display: flex;
+  margin-bottom: 28px;
 
   li {
     color: ${(props) => props.theme.colors.text};
@@ -70,5 +71,21 @@ export const SecondList = styled.ul`
       width: 1px;
       background-color: ${(props) => props.theme.colors.after};
     }
+  }
+`;
+
+export const Button = styled.button`
+  padding: 12px 99px;
+  color: #ffffff;
+  font-size: ${(props) => props.theme.fontSizes.s};
+  font-weight: ${(props) => props.theme.fontWeights.medium};
+  line-height: 1.43;
+  border: ${(props) => props.theme.borders.none};
+  border-radius: ${(props) => props.theme.radius.normal};
+  background-color: ${(props) => props.theme.colors.primary};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.secondary};
   }
 `;

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 
+import defaultCar from '../DefaultImage/defaultCar1.jpeg';
+
 import {
   FirstItemWrapper,
   Span,
   FirstList,
   SecondList,
+  Button,
 } from './CarItem.styled';
 
 export default function CarItem({ car }) {
@@ -21,9 +24,10 @@ export default function CarItem({ car }) {
     rentalCompany,
     functionalities,
   } = car;
+
   return (
     <>
-      <img src={img} alt={car.make} />
+      <img src={img || defaultCar} alt={make} />
       <FirstItemWrapper>
         <p>
           {make} <Span>{model},</Span> {year}
@@ -41,7 +45,7 @@ export default function CarItem({ car }) {
         <li>{id}</li>
         <li>{functionalities[0]}</li>
       </SecondList>
-      <button>Learn more</button>
+      <Button>Learn more</Button>
     </>
   );
 }
