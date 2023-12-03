@@ -1,14 +1,37 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-import { selectCars } from '../../redux/selectors';
+import { selectCars, selectPage } from '../../redux/selectors';
+import { getCars } from '../../redux/operations';
 import CarItem from '../CarItem/CarItem';
-import { Section, CarsListEl, ListItem } from './CarsList.styled';
+
+import { loadMoreCars } from '../../redux/carsSlice';
+
+import {
+  Wrapper,
+  Section,
+  CarsListEl,
+  ListItem,
+  Button,
+} from './CarsList.styled';
 
 export default function CarsList() {
   const cars = useSelector(selectCars);
+  const page = useSelector(selectPage);
+  // const limit = useSelector(selectLimit);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCars({ page }));
+  }, [dispatch, page]);
+
+  const handleLoadMore = () => {
+    dispatch(loadMoreCars({ page: page + 1, limit: 12 }));
+  };
 
   return (
-    <>
+    <Wrapper>
       <Section>
         <CarsListEl>
           {cars.map((car) => (
@@ -18,7 +41,7 @@ export default function CarsList() {
           ))}
         </CarsListEl>
       </Section>
-      <button>Load more</button>
-    </>
+      <Button onClick={handleLoadMore}>Load more</Button>
+    </Wrapper>
   );
 }

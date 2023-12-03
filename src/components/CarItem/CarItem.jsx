@@ -12,25 +12,27 @@ import {
 
 export default function CarItem({ car }) {
   const {
-    id,
     make,
     model,
     year,
+    address,
     rentalPrice,
     img,
     type,
-    country,
-    city,
     rentalCompany,
     functionalities,
   } = car;
+
+  const addressParts = address.split(', ');
+  const city = addressParts[1];
+  const country = addressParts[2];
 
   return (
     <>
       <img src={img || defaultCar} alt={make} />
       <FirstItemWrapper>
         <p>
-          {make} <Span>{model},</Span> {year}
+          {make} <Span>{model}</Span>
         </p>
         <p>{rentalPrice}</p>
       </FirstItemWrapper>
@@ -41,8 +43,7 @@ export default function CarItem({ car }) {
       </FirstList>
       <SecondList>
         <li>{type}</li>
-        <li>{model}</li>
-        <li>{id}</li>
+        <li>{year}</li>
         <li>{functionalities[0]}</li>
       </SecondList>
       <Button>Learn more</Button>
